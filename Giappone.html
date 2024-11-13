@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma Giappone: Date Storiche</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1 class="game-title">Enigma delle Date Storiche Giapponesi</h1>
+        <h2 class="game-subtitle">Posiziona gli eventi storici giapponesi nell'ordine corretto</h2>
+
+        <!-- Sezione delle date (a sinistra) -->
+        <div class="dates">
+            <div id="date1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">1900</div>
+            <div id="date2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">1945</div>
+            <div id="date3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">1868</div>
+            <div id="date4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">1964</div>
+            <div id="date5" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">2011</div>
+        </div>
+
+        <!-- Sezione degli eventi (a destra) -->
+        <div class="events">
+            <div id="event1" class="draggable" draggable="true" ondragstart="drag(event)" style="background-color: #FF5733">Olimpiadi di Tokyo (1964)</div>
+            <div id="event2" class="draggable" draggable="true" ondragstart="drag(event)" style="background-color: #33FF57">Bombardamento di Hiroshima (1945)</div>
+            <div id="event3" class="draggable" draggable="true" ondragstart="drag(event)" style="background-color: #3357FF">Arrivo di Commodoro Perry (1853)</div>
+            <div id="event4" class="draggable" draggable="true" ondragstart="drag(event)" style="background-color: #FF33A6">Restaurazione Meiji (1868)</div>
+            <div id="event5" class="draggable" draggable="true" ondragstart="drag(event)" style="background-color: #FF8C00">Terremoto di Tōhoku (2011)</div>
+        </div>
+
+        <!-- Bottone per inviare la risposta -->
+        <button id="submitButton" onclick="checkAnswer()">Invia Risposta</button>
+
+        <!-- Risultato -->
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
