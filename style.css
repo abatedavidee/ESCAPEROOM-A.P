@@ -1,0 +1,180 @@
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://img.freepik.com/foto-premium/bandiera-d-italia-sullo-sfondo-del-cielo-la-bandiera-sventola-al-vento-ai-generato_894218-404.jpg");
+    background-size: cover; /* Copre tutta la pagina */
+    background-position: center center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Evita che l'immagine si ripeta */
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Colore del testo chiaro per contrasto */
+    line-height: 1.6;
+    text-align: center;
+    padding: 40px;
+    height: 100vh;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;  /* Centra il contenuto */
+    align-items: center;      /* Centra il contenuto */
+    min-height: 100vh;         /* Assicura che il body abbia almeno l'altezza della finestra */
+}
+
+
+
+/* Container principale */
+.container {
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff; /* Contenitore bianco per far risaltare gli elementi */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Ombra per dare profondità */
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Titolo principale */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #e67e22;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Effetto ombra per dare più risalto */
+}
+
+/* Titolo del video */
+h2 {
+    font-size: 1.7em;
+    color: #e62222;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Istruzioni sotto il titolo del video */
+#instructions {
+    font-size: 1.2em;
+    color: #0e77e0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Scritta "Scopri di più..." */
+#showMore {
+    font-size: 1.4em;
+    color: #2980b9;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+#showMore:hover {
+    color: #d35400; /* Cambio colore al passaggio del mouse */
+}
+
+/* Video nascosto inizialmente */
+#videoContainer.hidden {
+    display: none;
+}
+
+
+
+/* Modulo per la risposta */
+form {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 140px;
+    margin-right: 15px;
+    border: 2px solid #e67e22;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #2980b9;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1.1em;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d35400;
+}
+
+button:active {
+    transform: scale(0.98); /* Effetto click */
+}
+
+/* Risultato della risposta */
+#result {
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+#result.error {
+    color: #e74c3c;  /* Colore di errore in rosso */
+}
+
+/* Ombra e stile della pagina */
+.container::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: url('https://www.w3schools.com/w3images/forest.jpg') no-repeat center center;  /* Aggiungi un'immagine di sfondo leggera */
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* Per dispositivi mobili */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    #showMore {
+        font-size: 1.2em;
+    }
+
+    input[type="text"] {
+        width: 120px;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
