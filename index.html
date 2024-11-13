@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Enigma Italia: La Carbonara</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+<div class="container">
+    <h1>Benvenuto in Italia!</h1>
+    <h6>Il Mistero della Carbonara</h6>
+
+    <!-- Titolo del video -->
+    <h2 id="videoTitle">Digitare su youtube: Ordino la CARBONARA con DUE STELLE MICHELIN! Come sarà??</h2>
+
+    <!-- Testo esplicativo sotto il titolo del video -->
+    <p id="instructions">Guarda attentamente il video e trova il momento esatto in cui appare il libro.</p>
+
+    <!-- Scritta "Scopri di più..." che farà apparire il video dopo 3 clic -->
+    <p id="showMore">Scopri di più...</p>
+    
+    <!-- Video nascosto inizialmente -->
+    <div id="videoContainer" class="hidden">
+        <iframe width="600" height="500" src="https://www.youtube.com/embed/xXacTdrAKD8" title="Ordino la CARBONARA con DUE STELLE MICHELIN! Come sarà??" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Modulo per inserire il tempo, senza la label del tempo -->
+    <form id="quizForm">
+        <input type="text" id="timeAnswer" name="timeAnswer" placeholder="Es. 00:45" required>
+        <button type="submit">Invia Risposta</button>
+    </form>
+
+    <!-- Risultato del quiz (suggerimento di errore o successo) -->
+    <div id="result"></div>
+
+    <!-- Bottone per andare alla pagina del Giappone, inizialmente nascosto -->
+    <a id="goToJapanLink" href="Giappone.html" class="hidden">
+        <button id="nextButton">Vai al Giappone</button>
+    </a>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
