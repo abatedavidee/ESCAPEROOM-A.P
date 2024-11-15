@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocollo Nemesi - Sincronizzazione dei Thread</title>
+    <style>
+        /* Stili di base */
+        body {
+            background-color: #1c1c1c;
+            color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #292929;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        h1 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .btn-answer {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #34495e;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-answer:hover {
+            background-color: #2c3e50;
+        }
+
+        .feedback {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .correct {
+            color: #2ecc71;
+        }
+
+        .wrong {
+            color: #e74c3c;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #codeInput {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        #submitCode {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #submitCode:hover {
+            background-color: #c0392b;
+        }
+
+        .lives {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Protocollo Nemesi - Sincronizzazione dei Thread</h1>
+        <p>Un problema di deadlock si è verificato nel sistema. Trova la sequenza corretta di accesso ai thread per risolverlo.</p>
+
+        <!-- Sezione cuori (vite) -->
+        <div class="lives">
+            <span id="heart1" class="heart">❤️</span>
+        </div>
+
+        <!-- Risposte -->
+        <button class="btn-answer" onclick="checkAnswer('A -> C -> B')">A -> C -> B</button>
+        <button class="btn-answer" onclick="checkAnswer('B -> A -> C')">B -> A -> C</button>
+        <button class="btn-answer" onclick="checkAnswer('A -> B -> C')">A -> B -> C</button>
+        <button class="btn-answer" onclick="checkAnswer('C -> B -> A')">C -> B -> A</button>
+
+        <!-- Feedback -->
+        <div id="feedback" class="feedback"></div>
+
+        <!-- Input per codice -->
+        <div id="codeSection" class="hidden">
+            <p>Hai risolto il deadlock! Inserisci il codice "123#5" per proseguire:</p>
+            <input type="text" id="codeInput" placeholder="Inserisci il codice">
+            <button id="submitCode" onclick="verifyCode()">Invia</button>
+        
+        </div>
+
+
+    </div>
+
+    <script>
+        let lives = 1; // Vite iniziali
+
+        // Funzione per aggiornare le vite
+        function updateLives() {
+            for (let i = 1; i <= 1; i++) {
+                const heart = document.getElementById('heart' + i);
+                if (i > lives) {
+                    heart.style.visibility = 'hidden'; // Nascondi cuore
+                } else {
+                    heart.style.visibility = 'visible'; // Mostra cuore
+                }
+            }
+        }
+
+        // Funzione per controllare la risposta
+        function checkAnswer(answer) {
+            const feedback = document.getElementById('feedback');
+            const codeSection = document.getElementById('codeSection');
+            const correctAnswer = 'A -> B -> C'; // Risposta corretta
+
+            if (answer === correctAnswer) {
+                feedback.innerHTML = "Risposta corretta! Hai risolto il deadlock.";
+                feedback.className = "feedback correct";
+                codeSection.classList.remove('hidden'); // Mostra la sezione del codice
+            } else {
+                lives--; // Riduci le vite
+                updateLives(); // Aggiorna la visualizzazione delle vite
+
+                if (lives > 0) {
+                    feedback.innerHTML = "Risposta errata. Riprova!";
+                    feedback.className = "feedback wrong";
+                } else {
+                    feedback.innerHTML = "Hai esaurito le vite. Riprova dal primo livello.";
+                    feedback.className = "feedback wrong";
+                    // Non fare il reindirizzamento qui
+                }
+            }
+        }
+
+        // Funzione per verificare il codice
+        function verifyCode() {
+            const codeInput = document.getElementById('codeInput').value.trim();
+            if (codeInput === "12345") {
+                alert("Accesso al prossimo livello sbloccato!");
+                location.href = "https://forms.gle/YZs5aJkEjKLLRRQN7"; // Reindirizza al prossimo livello
+            } else {
+                alert("Codice errato. Riprova!");
+            }
+        }
+    </script>
+</body>
+</html>

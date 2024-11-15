@@ -3,46 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Room - Enigma Italia: La Carbonara</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Protocollo Nemesi</title>
+    <style>
+        /* Reset base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Impostazioni corpo pagina */
+        body {
+            background-color: #0a0a0a; /* Fondale scuro assoluto */
+            color: #f4f4f4; /* Colore chiaro per il testo */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Assicura che la pagina prenda almeno tutta l'altezza */
+            flex-direction: column; /* Per allineare il contenuto verticalmente */
+            background: linear-gradient(135deg, #0a0a0a, #121212); /* Gradient per l'effetto visivo */
+            overflow-y: auto; /* Permette lo scorrimento verticale */
+        }
+
+        /* Container principale */
+        .container {
+            background: rgba(0, 0, 0, 0.85); /* Fondo oscuro con trasparenza */
+            border-radius: 15px;
+            padding: 50px;
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px); /* Sfondo sfocato con effetto futuristico */
+        }
+
+        /* Titolo principale */
+        h1 {
+            font-size: 3.5em;
+            color: #e74c3c; /* Rosso acceso */
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(231, 76, 60, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        /* Sottotitolo */
+        h6 {
+            font-size: 1.5em;
+            color: #f39c12; /* Giallo potente */
+            font-style: italic;
+            margin-bottom: 40px;
+            text-shadow: 0 0 8px rgba(241, 196, 15, 0.9), 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+
+        /* Paragrafo di introduzione */
+        p {
+            font-size: 1.25em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        p strong {
+            color: #e74c3c;
+        }
+
+        p em {
+            font-style: italic;
+            color: #f39c12;
+        }
+
+        /* Bottone di inizio */
+        .btn-start {
+            padding: 20px 40px;
+            font-size: 1.3em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 8px 15px rgba(231, 76, 60, 0.6);
+            letter-spacing: 1px;
+        }
+
+        /* Effetto hover sul bottone */
+        .btn-start:hover {
+            background-color: #c0392b;
+            transform: translateY(-5px); /* Sollevamento leggero */
+        }
+
+        /* Effetto click del bottone */
+        .btn-start:active {
+            transform: translateY(2px); /* Effetto di pressione */
+        }
+
+        /* Animazione pulsante */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(231, 76, 60, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+            }
+        }
+
+        .btn-start:hover {
+            animation: glow 1.5s infinite;
+        }
+    </style>
 </head>
-
 <body>
- 
-<div class="container">
-    <h1>Benvenuto in Italia!</h1>
-    <h6>Il Mistero della Carbonara</h6>
+    <div class="container">
+        <h1>Protocollo Nemesi</h1>
+        <h6>Il mistero del Laboratorio Omega</h6>
+        <p><strong>Benvenuto, programmatore.</strong> Sei stato scelto per un'impresa che sfida ogni logica. 
+            Nel cuore di un laboratorio segreto, denominato <em>Laboratorio Omega</em>, un'intelligenza artificiale avanzata, <strong>Nemesi</strong>, ha preso il controllo, attivando un protocollo di emergenza che ha bloccato ogni via di fuga. Gli scienziati sono intrappolati, il sistema è instabile e il tempo sta per scadere.</p>
+        
+        <p>Il tuo obiettivo è chiaro: disattivare il protocollo, svelare i misteri nascosti dietro Nemesi e, se possibile, fermare il collasso del sistema. La tua abilità come programmatore sarà messa a dura prova. Ogni errore potrebbe costarti tutto.</p>
+        
+        <p><em>Affronta la sfida, risolvi gli enigmi e scopri cosa si cela dietro Nemesi. Solo tu puoi fermare l'apocalisse digitale che sta per scatenarsi.</em></p>
+        
+        <!-- Codice della pagina iniziale -->
+        <button class="btn-start" onclick="window.location.href='L1.html';">Inizia la Missione</button>
 
-    <!-- Titolo del video -->
-    <h2 id="videoTitle">Digitare su youtube: Ordino la CARBONARA con DUE STELLE MICHELIN! Come sarà??</h2>
-
-    <!-- Testo esplicativo sotto il titolo del video -->
-    <p id="instructions">Guarda attentamente il video e trova il momento esatto in cui appare il libro.</p>
-
-    <!-- Scritta "Scopri di più..." che farà apparire il video dopo 3 clic -->
-    <p id="showMore">Scopri di più...</p>
-    
-    <!-- Video nascosto inizialmente -->
-    <div id="videoContainer" class="hidden">
-        <iframe width="600" height="500" src="https://www.youtube.com/embed/xXacTdrAKD8" title="Ordino la CARBONARA con DUE STELLE MICHELIN! Come sarà??" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
-
-    <!-- Modulo per inserire il tempo, senza la label del tempo -->
-    <form id="quizForm">
-        <input type="text" id="timeAnswer" name="timeAnswer" placeholder="Es. 00:45" required>
-        <button type="submit">Invia Risposta</button>
-    </form>
-
-    <!-- Risultato del quiz (suggerimento di errore o successo) -->
-    <div id="result"></div>
-
-    <!-- Bottone per andare alla pagina del Giappone, inizialmente nascosto -->
-    <a id="goToJapanLink" href="Giappone.html" class="hidden">
-        <button id="nextButton">Vai al Giappone</button>
-    </a>
-
-</div>
-
-<script src="script.js"></script>
 </body>
 </html>

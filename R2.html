@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Conflitto nel Codice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Protocollo Nemesi - Riconosci il Conflitto</h1>
+        <p id="instructions">Guarda il video e scopri il momento esatto in cui avviene un esempio sulla programmazione multithreading.</p>
+
+        <!-- Video -->
+        <div class="video-container">
+            <iframe width="656" height="369" 
+                src="https://www.youtube.com/embed/zaVL2gK7qkc" 
+                title="1 Programmazione concorrente introduzione" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Input dell'utente -->
+        <div class="user-input">
+            <input type="text" id="timeGuess" placeholder="mm:ss">
+            <button id="submitTime" class="btn">Invia</button>
+        </div>
+
+        <!-- Feedback -->
+        <div id="feedback"></div>
+
+        <!-- Link per avanzare -->
+        <a id="nextLevelLink" href="next_level.html" class="hidden">
+            <button class="btn-next">Vai al prossimo livello</button>
+        </a>
+
+        <!-- Sezione cuori (vite) -->
+        <div class="lives">
+            <span id="heart1" class="heart">❤️</span>
+            <span id="heart2" class="heart">❤️</span>
+            <span id="heart3" class="heart">❤️</span>
+        </div>
+    </div>
+
+    <script>
+        let lives = 3; // Vite iniziali
+
+        // Funzione per aggiornare le vite
+        function updateLives() {
+            for (let i = 1; i <= 3; i++) {
+                const heart = document.getElementById('heart' + i);
+                if (i > lives) {
+                    heart.style.visibility = 'hidden'; // Nascondi cuore
+                } else {
+                    heart.style.visibility = 'visible'; // Mostra cuore
+                }
+            }
+        }
+
+        // Funzione per verificare il tempo inserito
+        document.getElementById("submitTime").addEventListener("click", function () {
+            const userInput = document.getElementById("timeGuess").value.trim();
+            const feedback = document.getElementById("feedback");
+            const nextLevelLink = document.getElementById("nextLevelLink");
+
+            // Intervallo corretto
+            const correctTimes = ["06:25", "06:26", "06:27", "06:28"];
+
+            if (correctTimes.includes(userInput)) {
+                feedback.innerHTML = "Risposta corretta! Hai identificato l'esempio.";
+                feedback.style.color = "#2ecc71"; // Verde
+                nextLevelLink.classList.remove("hidden");
+            } else {
+                lives--; // Riduci le vite
+                updateLives(); // Aggiorna la visualizzazione delle vite
+
+                if (lives > 0) {
+                    feedback.innerHTML = "Risposta errata. Riprova!";
+                    feedback.style.color = "#e74c3c"; // Rosso
+                } else {
+                    feedback.innerHTML = "Hai esaurito le vite. Riprova dal primo livello.";
+                    feedback.style.color = "#e74c3c"; // Rosso
+
+                    // Disabilita il bottone per evitare ulteriori tentativi
+                    document.getElementById("submitTime").disabled = true;
+
+                    // Ricarica la pagina dopo 5 secondi
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
